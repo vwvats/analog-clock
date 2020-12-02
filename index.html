@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Analog Clock</title>
+  <!-- Favicon -->
 </head>
 <body>
   <div class="clock">
@@ -16,7 +17,7 @@
 
   <style>
     html {
-      background: #018DED url(https://unsplash.it/1500/1000?image=881&blur=5);
+      background: #018DED url(./mountains.jpg) bottom;
       background-size: cover;
       font-family: 'helvetica neue';
       text-align: center;
@@ -75,17 +76,22 @@
 
     function displayTime() {
       const now = new Date();
+
       const seconds = now.getSeconds();
       const secDegrees = ((seconds / 60) * 360) + 90;
+      secHand.style.transform = `rotate(${secDegrees}deg)`
 
       const minutes = now.getMinutes();
       const minDegrees = ((minutes / 60) * 360) + 90;
+      minHand.style.transform = `rotate(${minDegrees}deg)`
 
       const hours = now.getHours();
       const hourDegrees = ((hours / 12) * 360) + 90;
+      hourHand.style.transform = `rotate(${hourDegrees}deg)`
     }
 
     setInterval(displayTime, 1000);
+    setDate();
   </script>
 </body>
 </html>
